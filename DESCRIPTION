@@ -1,0 +1,16 @@
+Package: timesheet
+Type: Package
+Title: Process Google Calendar data for record keeping purposes
+Version: 0.1.0
+Authors@R: person(
+    "Marcel", "Ramos", , "marcel.ramos@sph.cuny.edu",
+    c("aut", "cre"), c(ORCID = "0000-0002-3242-0582")
+  )
+Maintainer: The package maintainer <yourself@somewhere.net>
+Description: Access the Google Calendar API and retrieve events for a named
+  calendar. Clean up and tally the number of hours per day for that calendar.
+  Display the event names and hours for bookkeeping purposes.
+Import: googlecalendar, dplyr, BiocBaseUtils, lubridate
+License: Artistic-2.0
+Encoding: UTF-8
+RoxygenNote: 7.2.1
