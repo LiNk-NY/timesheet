@@ -11,6 +11,7 @@ Description: Access the Google Calendar API and retrieve events for a named
   calendar. Clean up and tally the number of hours per day for that calendar.
   Display the event names and hours for bookkeeping purposes.
 Import: googlecalendar, dplyr, BiocBaseUtils, lubridate
+Remotes: LiNk-NY/googlecalendar
 License: Artistic-2.0
 Encoding: UTF-8
 RoxygenNote: 7.2.1
