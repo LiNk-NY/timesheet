@@ -30,10 +30,11 @@
 #' meeting_record("2022-08-28", "2022-09-10")
 #'
 #' @export
-meeting_record <-
-    function(start_date, end_date, remove_text = " and Marcel Ramos")
-{
-    dets <- .preprocess_calendar()
+meeting_record <- function(
+    start_date, end_date,
+    remove_text = " and Marcel Ramos", name = "Quantitative"
+) {
+    dets <- .preprocess_calendar(name = name)
     if (!missing(start_date) && !missing(end_date)) {
         dates <- .get_dates(dets)
         dets <- dets[.filter_by_date(dates, start_date, end_date), ]
