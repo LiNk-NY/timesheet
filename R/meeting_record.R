@@ -39,6 +39,9 @@
 #' @param end_date character(1) The end date to restrict the entries
 #'   `data.frame`.
 #'
+#' @param include_cancel logical(1) Whether or not to include entried beginning
+#'   with "Canceled" (default: FALSE)
+#'
 #' @examples
 #'
 #' if (interactive()) {

@@ -4,7 +4,13 @@
 \alias{meeting_record}
 \title{Create a summary data.frame of meetings within a date interval}
 \usage{
-meeting_record(name, start_date, end_date, remove_text = " and Marcel Ramos")
+meeting_record(
+  name,
+  start_date,
+  end_date,
+  remove_text = " and Marcel Ramos",
+  include_cancel = FALSE
+)
 }
 \arguments{
 \item{name}{character(1) The Google calendar name}
@@ -14,6 +20,9 @@ meeting_record(name, start_date, end_date, remove_text = " and Marcel Ramos")
 
 \item{end_date}{character(1) The end date to restrict the entries
 \code{data.frame}.}
+
+\item{include_cancel}{logical(1) Whether or not to include entried beginning
+with "Canceled" (default: FALSE)}
 }
 \value{
 A \code{data.frame} of meeting times and student information
