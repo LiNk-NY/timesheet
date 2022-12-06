@@ -32,13 +32,16 @@
 #' @export
 meeting_record <- function(
     start_date, end_date,
-    remove_text = " and Marcel Ramos", name = "Quantitative"
+    remove_text = " and Marcel Ramos", name = "Quantitative",
+    include_cancel = FALSE
 ) {
     dets <- .preprocess_calendar(name = name)
     if (!missing(start_date) && !missing(end_date)) {
         dates <- .get_dates(dets)
         dets <- dets[.filter_by_date(dates, start_date, end_date), ]
     }
+    if (!include_cancel)
+        dets <- dets[!startsWith(dets$summary, "Canceled"), ]
     students <- .getStudataframe(dets)
     studata <- do.call(rbind,
         lapply(dets$description, function(desc) {
