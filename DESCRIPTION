@@ -11,6 +11,7 @@ Description: Access the Google Calendar API and retrieve events for a named
   Display the event names and hours for bookkeeping purposes.
 Depends: googlecalendar
 Import: dplyr, BiocBaseUtils, lubridate
+Roxygen: list(markdown = TRUE)
 Remotes: LiNk-NY/googlecalendar
 License: Artistic-2.0
 Encoding: UTF-8

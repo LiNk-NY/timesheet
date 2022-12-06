@@ -25,14 +25,36 @@
     )
 }
 
+#' Create a summary data.frame of meetings within a date interval
+#'
+#' Query a particular calendar name to extract the event entries. The associated
+#' metadata will be included, e.g., first and last names, program, class,
+#' EMPLID.
+#'
+#' @param name character(1) The Google calendar name
+#'
+#' @param start_date character(1) The start date to restrict the entries in
+#'   'YYYY-MM-DD' format.
+#'
+#' @param end_date character(1) The end date to restrict the entries
+#'   `data.frame`.
+#'
 #' @examples
 #'
-#' meeting_record("2022-08-28", "2022-09-10")
+#' if (interactive()) {
+#'   meeting_record(
+#'     name = "Quantitative",
+#'     start_date = "2022-09-25",
+#'     end_date = "2022-10-08"
+#'   )
+#' }
+#'
+#' @return A `data.frame` of meeting times and student information
 #'
 #' @export
 meeting_record <- function(
-    start_date, end_date,
-    remove_text = " and Marcel Ramos", name = "Quantitative",
+    name, start_date, end_date,
+    remove_text = " and Marcel Ramos",
     include_cancel = FALSE
 ) {
     dets <- .preprocess_calendar(name = name)
@@ -63,7 +85,8 @@ meeting_record <- function(
             )
         })
     )
-    cbind(students, studata)
+    res <- cbind(students, studata)
+    res[order(res[["Date"]], res[["startTime"]]), ]
 }
 
 # write.csv(sched, file = "~/data/QuantTutoringS2022.csv", row.names = FALSE)
